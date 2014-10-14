@@ -9,22 +9,45 @@ namespace ConsoleApplication2
     {
         public static void Programma()
         {
+
             int righe = Utils.LeggiNumero("Numero righe");
 
             int colonne = Utils.LeggiNumero("Numero colonne");
 
-            for (int r = 1; r <= righe; r++) {
+            for (int r = 1; r <= righe; r++)
+            {
+                Console.WriteLine("R: {0}",r);
+
+                for (int c = 1; c <= colonne; c++)
+                {
+                    // inserisce il numero in una tabulazione di 3
+                    Console.Write("  C:{0,3}", c);
+
+                    int prod = r * c;
+                    Console.WriteLine(" Prodotto: {0,3}",prod);
+                }
+            }
+
+        }
+
+        private static void CicloBidimensionale1()
+        {
+            int righe = Utils.LeggiNumero("Numero righe");
+
+            int colonne = Utils.LeggiNumero("Numero colonne");
+
+            for (int r = 1; r <= righe; r++)
+            {
                 Console.WriteLine("R:" + r);
 
-                for (int c = 1; c <= colonne; c++) {
+                for (int c = 1; c <= colonne; c++)
+                {
                     Console.Write("  C:" + c);
-                    
+
                     int prod = r * c;
                     Console.WriteLine(" Prodotto: " + prod);
                 }
-            } 
-
-
+            }
         }
 
 
