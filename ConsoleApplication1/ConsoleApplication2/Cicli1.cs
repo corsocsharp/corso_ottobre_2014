@@ -16,7 +16,26 @@ namespace ConsoleApplication2
 
             for (int r = 1; r <= righe; r++)
             {
-                Console.WriteLine("R: {0}",r);
+                for (int c = 1; c <= colonne; c++)
+                {
+                    int prod = r * c;
+                    Console.Write("{0,4}", prod);
+                }
+
+                Console.WriteLine("");
+            }
+
+        }
+
+        private static void TavolaPitagoricaGrezza()
+        {
+            int righe = Utils.LeggiNumero("Numero righe");
+
+            int colonne = Utils.LeggiNumero("Numero colonne");
+
+            for (int r = 1; r <= righe; r++)
+            {
+                Console.WriteLine("R: {0}", r);
 
                 for (int c = 1; c <= colonne; c++)
                 {
@@ -24,10 +43,9 @@ namespace ConsoleApplication2
                     Console.Write("  C:{0,3}", c);
 
                     int prod = r * c;
-                    Console.WriteLine(" Prodotto: {0,3}",prod);
+                    Console.WriteLine(" Prodotto: {0,3}", prod);
                 }
             }
-
         }
 
         private static void CicloBidimensionale1()
