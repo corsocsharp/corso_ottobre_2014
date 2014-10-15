@@ -13,7 +13,9 @@ namespace ConsoleApplication2
 
             //ConsoleDisegni.Disegna();
 
-            Vettori.ProvaVettori();
+            //Vettori.ProvaVettori();
+
+            EserciziVettori.EseguiEsercizi();
 
             Console.ReadKey();
 

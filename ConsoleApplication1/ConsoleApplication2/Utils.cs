@@ -29,5 +29,14 @@ namespace ConsoleApplication2
             int numero = Convert.ToInt32(testo);
             return numero;
         }
+
+        public static bool ControllaNumero(string testoDaControllare) { 
+            int valore = 0;
+            bool valoreIntero = 
+                Int32.TryParse(testoDaControllare, out valore);
+
+            return valoreIntero;
+
+        }
     }
 }
