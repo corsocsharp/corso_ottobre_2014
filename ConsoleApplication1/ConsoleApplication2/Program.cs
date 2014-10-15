@@ -15,7 +15,9 @@ namespace ConsoleApplication2
 
             //Vettori.ProvaVettori();
 
-            EserciziVettori.EseguiEsercizi();
+            //EserciziVettori.EseguiEsercizi();
+
+            AccessoFile.Programma();
 
             Console.ReadKey();
 
