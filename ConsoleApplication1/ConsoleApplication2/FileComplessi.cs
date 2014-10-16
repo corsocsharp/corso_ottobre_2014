@@ -8,6 +8,7 @@ namespace ConsoleApplication2
     class FileComplessi
     {
         public static void Elabora() {
+
             string[] dati = File.ReadAllLines("dati-complessi.txt");
 
             string[] output = new string[dati.Length];
@@ -36,7 +37,6 @@ namespace ConsoleApplication2
                 string txt = parti[i];
                 if (Utils.ControllaNumero(txt)) {
                     int val = Convert.ToInt32(txt);
-
                     somma += val;
                     numValori++;
                 }

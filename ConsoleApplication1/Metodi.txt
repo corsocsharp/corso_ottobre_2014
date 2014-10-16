@@ -1,0 +1,54 @@
+Convert.ToInt32("34")  => converte stringa in int
+Convert.ToString(222)  => converte qualcosa in stringa
+
+int a = 22;
+a.ToString()  => converte un qualsiasi dato in stringa
+
+string str = "sdasdfsa";
+
+str.Length => lunghezza della stringa
+str[2] => terzo carattere della stringa (solo in lettura)
+int pos = str.IndexOf("a") => trova la posizione di 'a' nella stringa
+int pos = str.IndexOf("a",3) => trova la posizione di 'a' nella stringa a partire dal 4o carattere
+
+string str2 = str.Substring(4) => restituisce la stringa parziale a partire dalla pos 5
+string str2 = str.Substring(4,2) => restituisce la stringa parziale lunga 2 caratteri a partire dalla pos 5
+
+str = "12,44,66,dafsd,1aq1a";
+string [] p = str.Split(','); => Spezza la stringa in parti usando ',' come separatore
+
+str = String.Format("Media: {0}, Somma: {1}", 12, 44.5) => compone una stringa a partire da un template con segnaposto
+
+Console.ReadKey() => Legge un solo carattere
+str = Console.ReadLine() => Legge una riga di testo
+Console.Write("ddd") => scrive sulla console senza andare a capo
+Console.WriteLine("sadfasdf") => scrive sulla console e va a capo
+Console.WriteLine("Alt: {0} Largh: {1}",22,66) => scrive con i parametri
+
+### File
+
+using System.IO; => include la classe file
+
+str = File.ReadAllText("file.txt") => legge un file e lo carica in una stringa
+string[] righe = File.ReadAllLines("file.txt") => legge un file e carica le righe in un array
+
+File.WriteAllText("out.txt","contenuto") => scrive un file con la stringa presente nel secondo parametro
+File.WriteAllLines("out.txt", righe) => scrive un file partendo da un array con le righe
+
+File.AppendAllText("out.txt","contenuto") => aggiunge ad un file il contenuto della stringa presente nel secondo parametro
+File.AppendAllLines("out.txt", righe) => accoda ad un file il contenuto di un array con le righe
+
+StreamWriter writer = File.AppendText("out.txt"); => per fare più scritture su un file tenendolo aperto
+writer.WriteLine("dsdfsd");
+writer.WriteLine("dsdfsdsss");
+writer.Write("sdfasd");
+writer.Close();
+
+
+while(condizione){
+	// ... 
+}
+
+for(int i = 0; i < max; i++){
+	// ... 
+}
