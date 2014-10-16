@@ -1,0 +1,6 @@
+﻿
+
+-----------
+num:5 somma:245 media:45
+num:4 somma:135 media:25
+

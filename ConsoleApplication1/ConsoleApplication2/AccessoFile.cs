@@ -11,13 +11,62 @@ namespace ConsoleApplication2
     class AccessoFile
     {
         public static void Programma() {
+            string[] dati = File.ReadAllLines("dati2.txt");
 
+            int somma = 0;
+            int max = Int32.MinValue;
+            int min = Int32.MaxValue;
+            int numValori = 0;
+
+            for (int i = 0; i < dati.Length; i++) {
+                string txt = dati[i];
+                if (Utils.ControllaNumero(txt)) { 
+                    int num = Convert.ToInt32(txt);
+                
+                    somma += num;
+                    numValori++;
+
+                    if (max < num) max = num;
+                    if (min > num) min = num;
+                }
+            }
+
+            if (numValori > 0) {
+                double media = somma / (double)numValori;
+
+                Console.WriteLine("Ho letto {0} numeri", numValori);
+                Console.WriteLine("Somma: {0}", somma);
+                Console.WriteLine("Media: {0}", media);
+                Console.WriteLine("Max: {0}", max);
+                Console.WriteLine("Min: {0}", min);
+            }
+
+        }
+
+        private static void InvertiRighe()
+        {
+            string[] dati = File.ReadAllLines("dati.txt");
+
+            string[] output = new string[dati.Length];
+
+            for (int i = 0; i < dati.Length; i++)
+            {
+                int indice2 = dati.Length - 1 - i;
+
+                output[i] = dati[indice2];
+            }
+
+            File.WriteAllLines("out.txt", output);
+        }
+
+        private static void ProcessaFileConPadding()
+        {
             string[] dati = File.ReadAllLines("dati.txt");
 
             string[] output = new string[dati.Length];
 
             int padding = CalcolaPadding(dati.Length);
-            string formatoOutput = "{0,"+padding+"}: {1} ({2})";
+            string formatoOutput = "{0," + padding + "}: {1} ({2})";
 
             for (int i = 0; i < dati.Length; i++)
             {
@@ -31,7 +80,6 @@ namespace ConsoleApplication2
 
             File.WriteAllLines("out.txt", output);
             Console.WriteLine("Fatto!");
-            
         }
 
         private static int CalcolaPadding(int lunghezza)

@@ -17,7 +17,9 @@ namespace ConsoleApplication2
 
             //EserciziVettori.EseguiEsercizi();
 
-            AccessoFile.Programma();
+            //AccessoFile.Programma();
+
+            FileComplessi.Elabora();
 
             Console.ReadKey();
 
