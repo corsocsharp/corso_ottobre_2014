@@ -1,12 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace ConsoleApplication2
 {
     class FileComplessi
     {
         public static void Elabora() {
+            string[] dati = File.ReadAllLines("dati-complessi.txt");
+
+            string[] output = new string[dati.Length];
+
+            for (int i = 0; i < dati.Length; i++) {
+
+                string datiRiga = dati[i];
+
+                output[i] = ElaboraRiga(datiRiga);
+            
+            }
+
+            File.WriteAllLines("out.txt", output);
+
+        }
+
+        private static string ElaboraRiga(string datiRiga)
+        {
+            // 12;33;55;6;78;9
+            string[] parti = datiRiga.Split(';');
+
+            int somma = 0;
+            int numValori = 0;
+
+            for (int i = 0; i < parti.Length; i++) {
+                string txt = parti[i];
+                if (Utils.ControllaNumero(txt)) {
+                    int val = Convert.ToInt32(txt);
+
+                    somma += val;
+                    numValori++;
+                }
+            }
+
+            double media = somma / (double)numValori;
+
+            string risultato =
+                String.Format("Valori: {0}  Somma: {1}  Media: {2}",
+                             numValori, somma, media);
+
+            return risultato;
+        }
+
+        private static void EsempioSplit()
+        {
 
             string input = "10x22x5";
 
@@ -15,7 +61,6 @@ namespace ConsoleApplication2
             Console.WriteLine("Altezza: {0}", parti[0]);
             Console.WriteLine("Larghezza: {0}", parti[1]);
             Console.WriteLine("Profondità: {0}", parti[2]);
-
         }
 
         private static void CalcolaVolumeDaStringaComplesso()
