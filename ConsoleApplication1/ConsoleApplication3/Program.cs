@@ -11,6 +11,49 @@ namespace ConsoleApplication3
         static void Main(string[] args)
         {
 
+            Rettangolo r = new Rettangolo(10,22);
+              
+            Cerchio c = new Cerchio(10);
+
+            Triangolo t = new Triangolo(2, 6, 9);
+
+            Console.WriteLine("Perimetro r: " + r.Perimetro);
+            Console.WriteLine("Perimetro c: " + c.Perimetro);
+
+            FiguraGeometrica[] figure = { r,t,c };
+
+
+            for (int i = 0; i < figure.Length; i++) { 
+                FiguraGeometrica f = figure[i];
+                double area = f.CalcolaArea();
+
+                Console.Write(" => Area: {0}", area);
+                Console.WriteLine(" => Perimetro: {0}", f.Perimetro);
+            }
+
+            //IConAngoliRetti figura = c;
+
+            //figura.NumeroAngoliRetti();
+
+
+            IConAngoliRetti[] elenco = new IConAngoliRetti[4];
+
+            Rettangolo r1 = new Rettangolo(2, 3);
+            Rettangolo r2 = new Rettangolo(2, 3);
+            Rettangolo r3 = new Rettangolo(2, 3);
+
+            Console.WriteLine("Numero rettangoli: " + Rettangolo.NumeroRettangoli);
+
+            Rettangolo.AzzeraContantore();
+
+            Console.WriteLine("Numero rettangoli: " + Rettangolo.NumeroRettangoli);
+
+            Console.ReadKey();
+
+        }
+
+        private static void EsempioDatabaseCliente()
+        {
             DatabaseClienti db = new DatabaseClienti();
             db.Carica();
 
@@ -26,27 +69,19 @@ namespace ConsoleApplication3
 
             db.CancellaCliente(2);
             db.Salva();
-
-
-
-
-
-
-            Console.ReadKey();
-
         }
 
         private static void RettangoliDaFile()
         {
             string[] righe = File.ReadAllLines("rettangoli.txt");
 
-            Rettangolo[] rettangoli = new Rettangolo[righe.Length];
+            RettangoloEsempio[] rettangoli = new RettangoloEsempio[righe.Length];
 
             for (int i = 0; i < righe.Length; i++)
             {
                 string riga = righe[i];
 
-                Rettangolo r = new Rettangolo(riga);
+                RettangoloEsempio r = new RettangoloEsempio(riga);
 
                 rettangoli[i] = r;
             }
@@ -54,7 +89,7 @@ namespace ConsoleApplication3
             for (int i = 0; i < rettangoli.Length; i++)
             {
 
-                Rettangolo r = rettangoli[i];
+                RettangoloEsempio r = rettangoli[i];
 
                 int area = r.CalcolaArea();
                 int perimetro = r.CalcolaPerimetro();
@@ -67,13 +102,13 @@ namespace ConsoleApplication3
 
         private static void EsempiRettangoli()
         {
-            Rettangolo r = new Rettangolo(20, 45);
+            RettangoloEsempio r = new RettangoloEsempio(20, 45);
 
             string a = "dasdfd" + r;
 
 
 
-            Rettangolo altro = new Rettangolo(33, 99);
+            RettangoloEsempio altro = new RettangoloEsempio(33, 99);
             Console.WriteLine(altro);
 
 
@@ -82,7 +117,7 @@ namespace ConsoleApplication3
             //Rettangolo r2 = new Rettangolo(0, 0);
 
 
-            Rettangolo r2 = new Rettangolo(data);
+            RettangoloEsempio r2 = new RettangoloEsempio(data);
 
 
             Console.WriteLine("Data: " + data);

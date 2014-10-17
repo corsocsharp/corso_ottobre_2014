@@ -5,41 +5,36 @@ using System.Text;
 
 namespace ConsoleApplication3
 {
-    class Rettangolo
+    class Rettangolo : FiguraGeometrica, IConAngoliRetti
     {
         public int Base;
         public int Altezza;
 
-        
-        public Rettangolo(int valoreBase, int valoreAltezza) {
-            Base = valoreBase;
-            Altezza = valoreAltezza;
+        static public int NumeroRettangoli = 0;
+
+        public Rettangolo(int valBase, int valAltezza) {
+            this.Base = valBase;
+            this.Altezza = valAltezza;
+
+            this.Perimetro = (Base + Altezza) * 2;
+
+
+            NumeroRettangoli++;
         }
 
-        public Rettangolo(string infoRettangolo) {
-            CaricaDaStringa(infoRettangolo);
-        }
-
-
-        private void CaricaDaStringa(string infoRettangolo) { 
-            // 55x56
-            string[] parti = infoRettangolo.Split('x');
-
-            this.Base = Convert.ToInt32(parti[0]);
-            this.Altezza = Convert.ToInt32(parti[1]);
-        }
-        
-        public override string ToString() {
-            return String.Format("Base: {0}, Altezza: {1}", this.Base, this.Altezza);
-        }
-
-        public int CalcolaArea()
+        public override double CalcolaArea()
         {
-            return this.Altezza * this.Base;
+            return Base * Altezza;
         }
 
-        public int CalcolaPerimetro() {
-            return (this.Base + this.Altezza) * 2;
+        public int NumeroAngoliRetti() {
+            return 4;
+        }
+
+
+        public static void AzzeraContantore()
+        {
+            NumeroRettangoli = 0;
         }
     }
 }
