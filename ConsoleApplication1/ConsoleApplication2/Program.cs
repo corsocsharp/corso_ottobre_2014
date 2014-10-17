@@ -19,7 +19,9 @@ namespace ConsoleApplication2
 
             //AccessoFile.Programma();
 
-            FileComplessi.Elabora();
+            //FileComplessi.Elabora();
+
+            Liste.Programma();
 
             Console.ReadKey();
 
